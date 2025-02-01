@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Valentín con Pochacco</title>
+  <style>
+    /* Estilos generales con fondo degradado y fuente alegre */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #FF9AA2, #FFB7B2, #FFDAC1, #E2F0CB);
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    .container {
+      text-align: center;
+      padding-top: 50px;
+    }
+    /* Mensaje especial */
+    .message {
+      font-size: 2.5em;
+      color: #ff4081;
+      text-shadow: 2px 2px 4px #000;
+      margin-top: 20px;
+    }
+    /* Estilos para la imagen de Pochacco */
+    .pochacco {
+      max-width: 300px;
+      width: 100%;
+    }
+    /* Estilos para los corazones */
+    .heart {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -25px;
+      left: 0;
+    }
+    .heart::after {
+      left: 25px;
+      top: 0;
+    }
+    /* Animación para hacer que los corazones floten */
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    .mensajito{
+        font-size: 2.5em;
+      color: #ff4081;
+      text-shadow: 2px 2px 4px #000;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sustituye "ruta_de_tu_imagen_de_pochacco.jpg" por la ruta o URL de tu imagen -->
+    <img src="img/dbdd7fc9f517e789fa29ca2239d1a617.jpg"  alt="pochacco" width="500" height="500">
+    <div class="message">¿Quieres ser mi San Valentín?</div>
+    <div class="Mensajito">Se que no somos nada pero igual queria preguntarte</div>
+  </div>
+
+  <script>
+    // Función para crear un corazón en una posición aleatoria
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      // Duración de la animación entre 3 y 5 segundos
+      heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+      document.body.appendChild(heart);
+
+      // Remover el corazón una vez finalizada la animación (aproximadamente en 5 segundos)
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // Crear un corazón cada 500 milisegundos
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
